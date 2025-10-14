@@ -1,0 +1,49 @@
+# Insurance Management Service
+
+## How to Run
+
+This service uses Docker with TestContainers for easy local testing.
+
+### Prerequisites
+- Java 21+
+- Maven
+- Docker Desktop
+
+### Setup
+1. Clone the repo: `git clone <repo-url>`
+2. Add `.testcontainers.properties` to your home folder (e.g., `C:/Users/YourName/.testcontainers.properties`):
+   ```
+   testcontainers.reuse.enable=true
+   ```
+   This keeps data persistent across restarts.
+
+### Run Locally
+- In IntelliJ or terminal: `mvn spring-boot:run -Dspring-boot.run.profiles=dev -f pom.xml`
+- Docker will auto-download and run PostgreSQL.
+- Service starts at `http://localhost:8080`.
+
+### Test
+- Run tests: `mvn test`
+- Covers unit and integration tests.
+
+## Architecture
+
+Standard Spring Boot microservice:
+- **Controllers**: Handle HTTP requests (e.g., `/api/contracts`).
+- **Services**: Business logic for contracts and clients.
+- **Repositories**: JPA for PostgreSQL DB access.
+- **Models**: Entities for DB, DTOs for API.
+- **Exceptions**: Basic handler for errors.
+
+This service is stateless, therefore it supports vertical and horizontal scaling. 
+
+For the purpose of this exercise I chose TestContainers with Docker to make the local development easier. 
+Otherwise I would have chosen a real database setup, which doesn't run on docker, in production :).
+
+
+## Points to Improve
+- **Security**: Add OAuth/JWT or API keys (currently open access).
+- **Performance**: Use Java Virtual Threads for heavy loads if needed.
+- **Logging** : Add more metrics and logs, then setup Grafana and a log monitoring tool such as Kibana or Splunk.
+
+For questions, check the code or ask!
