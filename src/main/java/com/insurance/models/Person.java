@@ -19,9 +19,4 @@ import java.time.LocalDate;
 public class Person extends Client {
     @Column
     private LocalDate birthdate;
-
-    public Person(Long id, String name, String email, String phone, LocalDate birthdate) {
-        super(id, name, email, phone, null);
-        this.birthdate = birthdate;
-    }
 }
