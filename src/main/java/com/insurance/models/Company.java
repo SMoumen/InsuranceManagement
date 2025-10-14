@@ -13,11 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Company extends Client {
-    @Column(nullable = true, unique = true, updatable = false)
+    @Column(unique = true, updatable = false)
     private String companyIdentifier;
 
-    public Company(Long id, String name, String email, String phone, String companyIdentifier) {
-        super(id, name, email, phone, null);
-        this.companyIdentifier = companyIdentifier;
-    }
 }
