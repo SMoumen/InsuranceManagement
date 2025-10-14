@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
