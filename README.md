@@ -29,7 +29,7 @@ This service uses Docker with TestContainers for easy local testing.
 ## Architecture
 
 Standard Spring Boot microservice:
-- **Controllers**: Handle HTTP requests (e.g., `/api/contracts`).
+- **Controllers**: Handle HTTP requests.
 - **Services**: Business logic for contracts and clients.
 - **Repositories**: JPA for PostgreSQL DB access.
 - **Models**: Entities for DB, DTOs for API.
@@ -38,12 +38,11 @@ Standard Spring Boot microservice:
 This service is stateless, therefore it supports vertical and horizontal scaling. 
 
 For the purpose of this exercise I chose TestContainers with Docker to make the local development easier. 
-Otherwise I would have chosen a real database setup, which doesn't run on docker, in production :).
+Also so that you won't have to set up a local database yourself when running the service. 
+Otherwise, I would have chosen a real database setup, which doesn't run on docker like in production :).
 
 
 ## Points to Improve
 - **Security**: Add OAuth/JWT or API keys (currently open access).
 - **Performance**: Use Java Virtual Threads for heavy loads if needed.
-- **Logging** : Add more metrics and logs, then setup Grafana and a log monitoring tool such as Kibana or Splunk.
-
-For questions, check the code or ask!
+- **Logging** : Add more metrics and logs, then setup Grafana and a log monitoring tool such as Kibana or Splunk. Also improve exception handling.
